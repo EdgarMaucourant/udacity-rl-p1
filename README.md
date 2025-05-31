@@ -5,6 +5,8 @@ It uses Unity ML-Agents and Python scripts to train an agent to play the Bananas
 
 Here are the details of the environment
 
+| Type				| Value		|
+|-------------------|-----------|
 | Action Space      |  4        |
 | Observation Shape |  (37,)    |
 | Solving score     |  13       | 
@@ -27,10 +29,10 @@ Before training your model, you need to download and create some elements.
 
 1. Create (and activate) a new environment with Python 3.7.
 
-	```On a terminal
-	conda create --name drlnd python=3.7 
-	conda activate drlnd
-	```
+```On a terminal
+conda create --name drlnd python=3.7 
+conda activate drlnd
+```
 	
 2. Install the dependency (only tested on Windows, but should work on other env as well):
 ```bash
@@ -49,9 +51,9 @@ To train the agent, please follow the instruction under the section *4. It's You
 
 1. From a new terminal, open the notebook
 
-	```
-	jupyter notebook Navigation.ipynb
-	```
+```
+jupyter notebook Navigation.ipynb
+```
 
 2. Scroll to the section *4. It's Your Turn!* and run the cell defining the function "dqn". This function is used to train the agent using the hyperparameters provided. Note that in our cases we used the default parameters for Number of episodes (2000), max steps (1000), and epsilon (start=1.0, end=0.1, and decay-0.995).
 
