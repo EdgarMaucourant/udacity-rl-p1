@@ -26,12 +26,12 @@ Before training your model, you need to download and create some elements.
 *Note:*  this repo assume that your are running the code on a Windows machine (the Unity game is only provided for Windows) however adapting it to run on Mac or Linux should only require to update the path the the game executable, this has not been tested though.
 
 ## Create a Conda env
-1. To be able to run the training on a GPU install Cuda 11.6 from (https://developer.nvidia.com/cuda-11-6-2-download-archive)
+1. To be able to run the training on a GPU install Cuda 11.8 from (https://developer.nvidia.com/cuda-11-8-0-download-archive)
 
-2. Create (and activate) a new environment with Python 3.7.
+2. Create (and activate) a new environment with Python 3.9.
 
 ```On a terminal
-conda create --name drlnd python=3.7 
+conda create --name drlnd python=3.9 
 conda activate drlnd
 ```
 	
@@ -39,7 +39,7 @@ conda activate drlnd
 ```bash
 git clone https://github.com/EdgarMaucourant/udacity-rl-p1
 pip install .
-conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
 4. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `drlnd` environment. 
@@ -57,13 +57,15 @@ To train the agent, please follow the instruction under the section *4. It's You
 jupyter notebook Navigation.ipynb
 ```
 
-2. Scroll to the section *4. It's Your Turn!* and run the cell defining the function "dqn". This function is used to train the agent using the hyperparameters provided. Note that in our cases we used the default parameters for Number of episodes (2000), max steps (1000), and epsilon (start=1.0, end=0.1, and decay-0.995).
+2. Make sure your change the kernel to the drlnd kernel created before, use the Kernel menu and click "Change Kernel" then choose drlnd
 
-3. Run the next cell to import the required dependencies, and create a new environment based on the Bananas game (note that this is where you want to update the reference to the executable if you don't run on Windows). 
+3. Scroll to the section *4. It's Your Turn!* and run the cell defining the function "dqn". This function is used to train the agent using the hyperparameters provided. Note that in our cases we used the default parameters for Number of episodes (2000), max steps (1000), and epsilon (start=1.0, end=0.1, and decay-0.995).
+
+4. Run the next cell to import the required dependencies, and create a new environment based on the Bananas game (note that this is where you want to update the reference to the executable if you don't run on Windows). 
 
 This cell also create the Agent to be trained, that agent is based on the Deep Q-Learning Algorithm and expect the state size and action size as input (plus a seed for randomizing the initialization). For more details about this agent please look at the [Report](Report.md).
 
-4. Run the next cell to start the training. After some time (depending on your machine, mine took about 10 minutes), your model will be trained and the scores over iterations will be plotted. Note that while training you should see the game running (on windows at least) and the score increasing. If after 500 iterations the score did not increase you might want to review the parameters you provided to the dqn function.
+5. Run the next cell to start the training. After some time (depending on your machine, mine took about 10 minutes), your model will be trained and the scores over iterations will be plotted. Note that while training you should see the game running (on windows at least) and the score increasing. If after 500 iterations the score did not increase you might want to review the parameters you provided to the dqn function.
 
 *Note:* the last parameter passed to the dqn function in that cell "13" is the average score to obtain over 100 attempts to succeed the training. It is based on the requirement of the project.
 
