@@ -26,21 +26,23 @@ Before training your model, you need to download and create some elements.
 *Note:*  this repo assume that your are running the code on a Windows machine (the Unity game is only provided for Windows) however adapting it to run on Mac or Linux should only require to update the path the the game executable, this has not been tested though.
 
 ## Create a Conda env
+1. To be able to run the training on a GPU install Cuda 11.6 from (https://developer.nvidia.com/cuda-11-6-2-download-archive)
 
-1. Create (and activate) a new environment with Python 3.7.
+2. Create (and activate) a new environment with Python 3.7.
 
 ```On a terminal
 conda create --name drlnd python=3.7 
 conda activate drlnd
 ```
 	
-2. Install the dependency (only tested on Windows, but should work on other env as well):
+3. Install the dependency (only tested on Windows, but should work on other env as well):
 ```bash
 git clone https://github.com/EdgarMaucourant/udacity-rl-p1
 pip install .
+conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch
 ```
 
-3. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `drlnd` environment. 
+4. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `drlnd` environment. 
 ```bash
 python -m ipykernel install --user --name drlnd --display-name "drlnd"
 ```
